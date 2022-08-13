@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.top {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:30%;
+    line-height: 1.5;
+}
+.answer {
+    display: flex;
+    justify-content: center;
+}
+
+.hidden {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.answerLetter {
+    border: 1px solid green;
+    width: 30px;
+    text-align: center;
+    line-height: 2.5;
+    margin: 5px;
+}

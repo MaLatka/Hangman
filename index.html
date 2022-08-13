@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="top">
+    <h1>Welcome to Hangman!</h1>
+
+    <p>You know the thrill, right? You have to guess the word by pressing a letter on your keyboard. If you chose the right one the blank spaces will fill in with the correct chosen letter and then you can continue by choosing a different one. But when the word does not contain your letter a new line will be drawn in the picture. If the picture is completed before you can guess the word it's GAME OVER. Then you can start again with a different word. I'll give you a hint: the words are associated with food. Good luck!</p>
+</div>
+    <h2>Press a letter on your keyboard.</h2>
+
+    
+    <img src="images/hangman0.png" alt="picture of hangman">
+
+    <div class="answer">
+        <p class="answerDesc">The word: </p>
+        
+    </div>
+<!--
+    <div>
+        <input class="inputLetter" type="button" value="A">
+        <input class="inputLetter" type="button" value="B">
+        <input class="inputLetter" type="button" value="C">
+        <input class="inputLetter" type="button" value="D">
+        <input class="inputLetter" type="button" value="E">
+        <input class="inputLetter" type="button" value="F">
+        <input class="inputLetter" type="button" value="G">
+        <input class="inputLetter" type="button" value="H">
+        <input class="inputLetter" type="button" value="I">
+        <input class="inputLetter" type="button" value="J">
+        <input class="inputLetter" type="button" value="K">
+        <input class="inputLetter" type="button" value="L">
+        <input class="inputLetter" type="button" value="M">
+        <input class="inputLetter" type="button" value="N">
+        <input class="inputLetter" type="button" value="O">
+        <input class="inputLetter" type="button" value="P">
+        <input class="inputLetter" type="button" value="Q">
+        <input class="inputLetter" type="button" value="R">
+        <input class="inputLetter" type="button" value="S">
+        <input class="inputLetter" type="button" value="T">
+        <input class="inputLetter" type="button" value="U">
+        <input class="inputLetter" type="button" value="V">
+        <input class="inputLetter" type="button" value="W">
+        <input class="inputLetter" type="button" value="X">
+        <input class="inputLetter" type="button" value="Y">
+        <input class="inputLetter" type="button" value="Z">
+    </div>
+-->
+    <div>
+        <p>Letters already used: </p>
+        <p class="usedLetters">
+
+        </p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
