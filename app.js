@@ -17,18 +17,16 @@ let guessedLetters = [];
 let theAnswer = "";
 
 let mistakes = 0;
+let guessedAnswer = false;
 
 function startGame() {
-    // reseting values for user input and lifes
-    guessedLetters = [];
-    mistakes = 0;
-    
+    guessedAnswer = false;
+
     // getting the word to guess
     theAnswer = wordsToGuess[Math.floor(Math.random() * wordsToGuess.length)];
-    //console.log(theAnswer);
 
-    $("img").attr("src", "images/hangman0.png");
-    $(".usedLetters").text(guessedLetters);
+    //$(".usedLetters").text(guessedLetters);
+
     // creating containers for the letters and hiding them
     for (let i = 0; i < theAnswer.length; i++) {
     let wordLetter = document.createElement("div");
@@ -36,11 +34,22 @@ function startGame() {
     wordLetter.setAttribute("class", "answerLetter " + i);
     document.querySelector(".answer").appendChild(wordLetter);
     $(".answerLetter").addClass("hidden");
-    }
-    
+    }  
 }
 
-startGame();
+function resetGame() {
+    // reseting values for user input and lifes
+    guessedLetters = [];
+    mistakes = 0;
+    theAnswer = "";
+
+    // reseting elements in the HTML file
+    $("img").attr("src", "images/hangman0.png");
+    $(".answer").empty();
+    $(".usedLetters").empty();
+    
+    startGame();
+}
 
 function checkLetter(guessedLast) {
     let arrAnswer = theAnswer.split("");
@@ -58,29 +67,44 @@ function checkLetter(guessedLast) {
     }
 }
 
-function checkProgress() {
+function checkIfWon() {
+
+    //checking if user guessed the letters before running out of lifes
     let arrAnswer = theAnswer.split("");
-    
-    //checking if user guessed the letters before using up all lifes
     if (arrAnswer.every(r => guessedLetters.includes(r)) && mistakes < 6) {
-        $("h2").text("You guessed the word right! Congrats! Refresh the page to play again.");
+        $("h2").text("Congrats, you guessed the word! Press Enter to play again.");
         $("answerDesc").text("Yaaay!");
-        //$(document).on("keypress", startGame);
+        guessedAnswer = true;
     } 
+    
     // if the lifes ran out its game over
     else if (mistakes === 6) {
-        $("h2").text("Out of lifes... Refresh the page to start again!");
+        $("h2").text("Out of lifes... Press Enter to start again!");
         $(".answerLetter").removeClass("hidden");
         $(".answerDesc").text("Your word was: ");
-        //$(document).on("keypress", startGame);
     }
 }
 
+startGame();
+
 $(document).on("keypress", (event) => {
-    //console.log(event.key);
-    guessedLetters.push(event.key);
-    $(".usedLetters").text(guessedLetters);
-    checkLetter(event.key);
-    checkProgress();
+
+    //if the user lost or guessed the answer the game won't restart on random key press
+    if (mistakes < 6 && guessedAnswer != true ) {
+        guessedLetters.push(event.key);
+        $(".usedLetters").text(guessedLetters);
+        checkLetter(event.key);
+        checkIfWon();
+    }
 })
 
+$(document).on("keypress", function (event) {
+    if (mistakes < 6 && event.keyCode === 13) {
+        resetGame();
+        $("h2").text("Choose a letter by pressing the coresponding key on your keyboard.");
+    }
+    else if (event.keyCode === 13) {
+        resetGame();
+        $("h2").text("Try again! Press a key on your keyboard.");
+    }
+});

@@ -11,15 +11,16 @@
     <div class="top">
     <h1>Welcome to Hangman!</h1>
 
-    <p>You know the thrill, right? You have to guess the word by pressing a letter on your keyboard. If you chose the right one the blank spaces will fill in with the correct chosen letter and then you can continue by choosing a different one. But when the word does not contain your letter a new line will be drawn in the picture. If the picture is completed before you can guess the word it's GAME OVER. Then you can start again with a different word. I'll give you a hint: the words are associated with food. Good luck!</p>
+    <p>You know the thrill, right? You have to guess the word by pressing a letter on your keyboard. If you chose the right one the blank spaces will fill in with the correct chosen letter and then you can continue by choosing a different one. But when the word does not contain your letter a new line will be drawn in the picture. If the picture is completed before you can guess the word it's GAME OVER. Then you can start again with a different word. I'll give you a hint: the words are associated with food. Good luck! PS.: Press Enter to change the word.</p>
 </div>
-    <h2>Press a letter on your keyboard.</h2>
+    <h2>Choose a letter by pressing the coresponding key on your keyboard.</h2>
 
     
     <img src="images/hangman0.png" alt="picture of hangman">
 
-    <div class="answer">
+    <div class="middle">
         <p class="answerDesc">The word: </p>
+        <div class="answer"></div>
         
     </div>
 <!--
@@ -52,8 +53,9 @@
         <input class="inputLetter" type="button" value="Z">
     </div>
 -->
-    <div>
-        <p>Letters already used: </p>
+<p>Letters already used: </p>
+    <div class="bottom">
+        
         <p class="usedLetters">
 
         </p>
